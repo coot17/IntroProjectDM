@@ -39,6 +39,7 @@ public class Entry {
     //@NotBlank
     private String address;
 
+    // No tags needed, as empty means false
     private Boolean human;
 
     @CreatedDate

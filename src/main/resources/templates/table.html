@@ -24,7 +24,6 @@
             </thead>
             <tbody>
             <tr th:each="entry : ${entries}">
-                <!-- Add more fields later -->
                 <td th:text="${entry.getId()}">ID</td>
                 <td th:text="${entry.getName()}">Name</td>
                 <td th:text="${entry.getAge()}">Age</td>
@@ -35,15 +34,12 @@
             </tbody>
         </table>
 
-
     </div>
 
+    <!-- For simplicity, give a button to return to homepage -->
     <a th:href="@{/}" class="btn btn-primary">Back</a>
 
-
-
 </div>
-
 
 </body>
 </html>
