@@ -44,7 +44,7 @@ public class IndexController {
 
     @GetMapping("/entries/{id}")
     public String viewEntry(final @PathVariable("id") Long id, final Model model) {
-        /*Optional<Entry>*/ final Entry entry = this.entryRepository.findById(id).orElseThrow();
+        /*Optional<Entry>*/ final Entry entry = this.entryRepository.findById(id).orElse(null);
         model.addAttribute("entry", entry);
         return "entry";
     }

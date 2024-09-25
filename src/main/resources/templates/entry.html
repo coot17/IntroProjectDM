@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr th:if="${entry}">
 
                     <td th:text="${entry.id}">Id</td>
                     <td th:text="${entry.name}">Name</td>
@@ -31,10 +31,11 @@
                     <td th:text="${entry.human}">Human</td>
             </tr>
 
-                <!---<tr th:unless="${entry.isPresent()}">
-                    <td>Sad</td>
+                <!-- comes into play if entry is optional -->
+                <tr th:unless="${entry}">
+                    <td>Error: Entry not found</td>
                 </tr>
-                -->
+
             </tbody>
             </table>
         </div>
