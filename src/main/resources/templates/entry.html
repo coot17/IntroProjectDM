@@ -21,18 +21,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+            <tr>
+
                     <td th:text="${entry.id}">Id</td>
                     <td th:text="${entry.name}">Name</td>
                     <td th:text="${entry.email}">Email</td>
                     <td th:text="${entry.age}">Age</td>
                     <td th:text="${entry.address}">Address</td>
                     <td th:text="${entry.human}">Human</td>
+            </tr>
+
+                <!---<tr th:unless="${entry.isPresent()}">
+                    <td>Sad</td>
                 </tr>
+                -->
             </tbody>
             </table>
         </div>
     </div>
+
+    <a th:href="@{/}" class="btn btn-primary">Back</a>
+
 </div>
 </body>
 </html>

@@ -6,10 +6,13 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 @Controller
 public class IndexController {
@@ -41,7 +44,7 @@ public class IndexController {
 
     @GetMapping("/entries/{id}")
     public String viewEntry(final @PathVariable("id") Long id, final Model model) {
-        final Entry entry = this.entryRepository.findById(id).orElseThrow();
+        /*Optional<Entry>*/ final Entry entry = this.entryRepository.findById(id).orElseThrow();
         model.addAttribute("entry", entry);
         return "entry";
     }
@@ -54,7 +57,13 @@ public class IndexController {
             return "form";
         }
 
-        this.entryRepository.save(input);
+        // verify email is unique
+        try {
+            this.entryRepository.save(input);
+        } catch(Exception e) {
+            bindingResult.addError(new ObjectError("globalError", "email must be unique"));
+            return "form";
+        }
         return "redirect:/entries/" + input.getId();
     }
 }
