@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INTC-3283 - Welcome</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.js}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1>Jennifer Weekly Donation Report</h1>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Total Donation Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="donor : ${jenniferWeekly}">
+                    <td th:text="${donor.week}"></td>
+                    <td th:text="${donor.total}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -65,4 +65,46 @@ public class DonorsController {
         this.dataGeneratorService.generateRandomDonorsAndDonations(numDonors, maxDonationsPerDonor);
         return "redirect:/";
     }
+
+    @GetMapping("reports/janiceReport")
+    public String JaniceReport(Model model) {
+        model.addAttribute("janiceDonors", donorRepository.JaniceReport(50));
+        return "donors/janiceReport";
+    }
+
+    @GetMapping("reports/missingAddresses")
+    public String LarryAddresses(Model model) {
+        model.addAttribute("missingAddresses", donorRepository.LarryAddresses());
+        return "donors/LarryMissingAddressReport";
+    }
+
+    @GetMapping("reports/yearlyDonations")
+    public String LarryYearlyDonations(Model model) {
+        model.addAttribute("yearlyDonations", donorRepository.LarryYearlyDonations(2023));
+        return "donors/LarryYearlyDonation";
+    }
+
+    @GetMapping("reports/monthlyDonationJennifer")
+    public String JenniferMonthlyDonor(Model model) {
+        model.addAttribute("jenniferMonthly", donorRepository.JenniferMonthlyDonor());
+        return "donors/JenniferMonthlyDonors";
+    }
+
+    @GetMapping("reports/yearlyDonationJennifer")
+    public String JenniferYearlyReport(Model model) {
+        model.addAttribute("jenniferYearly", donorRepository.JenniferYearlyReport());
+        return "donors/JenniferYearly";
+    }
+
+    @GetMapping("reports/weeklyDonationJennifer")
+    public String JenniferWeeklyReport(Model model) {
+        model.addAttribute("jenniferWeekly", donorRepository.JenniferWeeklyReport());
+        return "donors/JenniferWeekly";
+    }
+
+    @GetMapping("reports/JenniferTop5Report")
+    public String JenniferTop5(Model model) {
+        model.addAttribute("jenniferTop5", donorRepository.JenniferTop5(2024, 11));
+        return "donors/JenniferTop5";
+    }
 }
