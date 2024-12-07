@@ -1,0 +1,9 @@
+CREATE TABLE tasks
+(
+    `id`         INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` NVARCHAR(255)     NOT NULL DEFAULT '',
+    `description`  NVARCHAR(1000)     NOT NULL DEFAULT '',
+    `willing_to_spend`  NUMERIC(9, 2)     NOT NULL DEFAULT 0,
+    `created_at` TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+

@@ -1,0 +1,12 @@
+= My API Documentation
+
+//include::{snippets}/get-endpoint/http-request.adoc[]
+
+This returns a list of tasks based on page number and page size.
+
+//operation::index[snippets='curl-request,http-request,http-response']
+
+
+
+
+
